@@ -3,7 +3,7 @@ ColorfulClock clock;
 void setup()
 {
   size(500, 500);  
-  clock = new ColorfulClock(300);
+  clock = new ColorfulClock(width/2, height/2, 300);
 }
 
 void draw()

@@ -2,9 +2,14 @@ class DigitalClock
 {
   color m_color;
   int   m_hour, m_minute, m_second;
+  int   m_textSize;
+  float   m_x, m_y;
   
-  DigitalClock(color col)
+  DigitalClock(float x, float y, int tsize, color col)
   {
+    m_x = x;
+    m_y = y;
+    m_textSize = tsize;
     setColor(col);
   }
   
@@ -18,9 +23,9 @@ class DigitalClock
   void display()
   {
     fill(m_color);
-    textSize(10);
+    textSize(m_textSize);
     textAlign(CENTER, CENTER);
-    text(m_hour + ":" + m_minute + ":" + m_second, 0, -80);
+    text(m_hour + ":" + m_minute + ":" + m_second, m_x, m_y);
   }
   
   void setColor(color col)

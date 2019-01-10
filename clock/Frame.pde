@@ -15,7 +15,7 @@ class Frame
     
     // frame
     strokeWeight(0.1125*m_diameter);
-    ellipse(0, 0, 1.125*(m_diameter+5),1.125*(m_diameter+5));
+    ellipse(0, 0, 1.14375*m_diameter, 1.14375*m_diameter);
     
     // circle
     strokeWeight(1); 

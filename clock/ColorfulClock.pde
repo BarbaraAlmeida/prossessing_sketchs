@@ -4,8 +4,9 @@ class ColorfulClock
   Frame         m_frame;
   Hands         m_hands;
   DigitalClock  m_digital;
+  int m_x, m_y;
   
-  ColorfulClock(int diameter)
+  ColorfulClock(int x, int y, int diameter)
   {   
     // set default colors
     colorMode(HSB, 360, 100, 100);
@@ -17,10 +18,13 @@ class ColorfulClock
     PFont font = createFont("Arial Black", 20, true);
     textFont(font);
     
-    m_background  = new Background(diameter, backgroundColor, detailsColor /*marks*/);
+    m_background  = new Background(diameter, backgroundColor, detailsColor /*marks*/, font);
     m_frame       = new Frame(diameter, frameColor);   
     m_hands       = new Hands(diameter, detailsColor /*hour*/, detailsColor /*minutes*/, frameColor /*seconds*/);
-    m_digital     = new DigitalClock(detailsColor);
+    m_digital     = new DigitalClock(0, -0.27*diameter, diameter / 30, detailsColor);
+
+    m_x = x;
+    m_y = y;
   }
   
   void update()
@@ -31,7 +35,7 @@ class ColorfulClock
 
   void display()
   {
-    translate(width/2, height/2);
+    translate(m_x, m_y);
     
     m_background.display();
     m_frame.display();  

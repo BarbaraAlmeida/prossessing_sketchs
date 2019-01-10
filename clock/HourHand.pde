@@ -2,9 +2,9 @@ class HourHand
 {
   float m_angle;
   color m_color;
-  int   m_size;
+  float   m_size;
 
-  HourHand(int size, color col)
+  HourHand(float size, color col)
   {
     m_size  = size;
     m_color = col;
@@ -13,10 +13,10 @@ class HourHand
   void display()
   {       
     strokeCap(ROUND);
-    strokeWeight(9);
+    strokeWeight(0.15*m_size);
     stroke(m_color);
     
-    line(15*cos(m_angle+PI), 15*sin(m_angle+PI), m_size*cos(m_angle), m_size*sin(m_angle));   
+    line(0.25*m_size*cos(m_angle+PI), 0.25*m_size*sin(m_angle+PI), m_size*cos(m_angle), m_size*sin(m_angle));   
   }
   
   void update()

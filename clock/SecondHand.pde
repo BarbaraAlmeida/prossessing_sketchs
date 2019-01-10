@@ -1,10 +1,10 @@
 class SecondHand
 {
-  int   m_size;
+  float   m_size;
   int   m_color, m_detailsColor;
   float m_angle;
   
-  SecondHand(int size, color col, color detailsColor)
+  SecondHand(float size, color col, color detailsColor)
   {
     m_size = size;
     setColors(col, detailsColor);
@@ -13,13 +13,13 @@ class SecondHand
   void display()
   {
     strokeCap(ROUND);
-    strokeWeight(2);
+    strokeWeight(0.0167*m_size);
     stroke(m_color);
     
-    line(20*cos(m_angle+PI), 20*sin(m_angle+PI), m_size*cos(m_angle), m_size*sin(m_angle));
+    line(0.1667*m_size*cos(m_angle+PI), 0.1667*m_size*sin(m_angle+PI), m_size*cos(m_angle), m_size*sin(m_angle));
     
     fill(m_detailsColor);
-    ellipse(0, 0, 10, 10);
+    ellipse(0, 0, 0.0833*m_size, 0.0833*m_size);
   }
   
   void update()
